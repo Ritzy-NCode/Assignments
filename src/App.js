@@ -1,30 +1,68 @@
 import React ,{Component} from 'react';
-import logo from './logo.svg';
 import './App.css';
-import UserOutput from './user/UserOutput';
-import UserInput from './user/UserInput';
+//import UserOutput from './user/UserOutput';
+//import UserInput from './user/UserInput';
+import { Header } from './components/Header';
+import { Login } from './components/Login';
+import  Dashboard  from './components/Dashboard';
+import { Footer } from './components/Footer';
+import { ValidationComponent } from './lecturesixty/ValidationComponent';
+import { CharComponent } from './lecturesixty/CharComponent';
 
 class App extends Component {
   state = {
-    name:"Ritzy"
+    name:"Ritzy",
+    userInput:'',
+    charComponents:""
+
   }
 
-  onOutPutClickHandler=(event)=>{
-    this.setState (
-      {
-        name :event.target.value
-      }
-    ) 
+  // onOutPutClickHandler=(event)=>{
+  //   this.setState (
+  //     {
+  //       name :event.target.value
+  //     }
+  //   ) 
+  // }
+  displayInputLength=(event)=>{
+  //  this.getCharacters(event.target.value);
+    this.setState({
+      userInput:event.target.value
+      
+    })
   }
+  removeSelectedChar=(index)=>{
+   let inputContent=this.state.userInput.split('');
+   inputContent.splice(index,1);
+   let updatedContent=inputContent.join('');
+   this.setState({
+     userInput:updatedContent
+     
+   })
 
-    render() {
+
+  }
+  render() {
+    //let charComponents=this.state.userInput;
+    let charComponents=  this.state.userInput.split('').map(
+      (a,index)=> {return <CharComponent clicked={()=>this.removeSelectedChar(index)} value={a}  key={index}/>}
+    )
       return (
        <div className="App">
-        <h1>The React App has started succesfully.</h1>
-      <UserInput changed={this.onOutPutClickHandler} name={this.state.name}/>
-        <UserOutput   name={this.state.name}/>
-        <UserOutput   name={this.state.name}/>
-       </div>
+       <h1>The React App has started succesfully.</h1>
+        <Header title="Training Session"/>
+        <Login portal="Training"/>
+        <Dashboard/>
+        <Footer/> 
+        <input type="text" onChange={this.displayInputLength} value={this.state.userInput}/>
+        {this.state.userInput.length}
+        <ValidationComponent length={this.state.userInput.length} />
+
+        {charComponents}
+     </div>// { <UserInput changed={this.onOutPutClickHandler} name={this.state.name}/>
+      //  <UserOutput   name={this.state.name}/>
+        // <UserOutput   name={this.state.name}/> }
+    //   </div>
       )
     }
   

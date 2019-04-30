@@ -72,7 +72,24 @@ const EditWindow =(props)=>{
     return(
         <div id="myModal" className="modal">
       <div className="modal-content">
-        Hello
+      <table>
+        <tbody>
+        <tr>
+            <td colSpan="2"><h3>Edit Record</h3></td>
+        </tr>
+        <tr>
+            <td>Id</td>
+            <td>{props.person.id}</td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>{props.person.name}</td>
+        </tr>
+        <tr>
+            <td>Skills</td>
+            <td>{props.person.skills}</td>
+        </tr></tbody>
+    </table>
    </div></div>
     )
 }

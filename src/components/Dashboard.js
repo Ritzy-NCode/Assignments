@@ -8,6 +8,7 @@ import RefsDemo from './parent-child/RefsDemo';
 import Context from './parent-child/context-api/Context';
 import CompLifeCycle from './lifecycle/CompLifeCycle';
 import WeatherComponent from './lifecycle/WeatherComponent';
+import FormApp from './record-keeper/form-validation/FormApp';
 
 export  default class Dashboard extends Component{
 
@@ -38,6 +39,7 @@ export  default class Dashboard extends Component{
                 <Context/>
                 <CompLifeCycle/>
                 <WeatherComponent/>
+                <FormApp/>
             </div>
         );
     }

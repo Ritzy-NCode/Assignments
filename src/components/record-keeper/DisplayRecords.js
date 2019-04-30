@@ -1,4 +1,5 @@
 import React,{Component} from 'react'
+import './Display.css';
 
 export default class DisplayRecords extends Component{
 
@@ -28,34 +29,38 @@ export default class DisplayRecords extends Component{
                 }
             ],
             editWindowOpen:false,
-            idToEdit:null
+            personToEdit:null
         }
     }
-    editRecord =(e)=>{
-      //  alert(event.target.value.person.id);
+    editRecord =(index)=>{
         this.setState({
             editWindowOpen:true,
-           // idToEdit:id
-        })
+            personToEdit:this.state.data[index]
+        })  
+        
     }
     render(){
         
     return(
         <div>
             <table className="table table.striped">
-                {this.state.data.map((person) =>
-                        <tr>
+            <tbody>
+                <tr>
+                    <td>ID</td>
+                    <td>Name</td>
+                    <td>Skills</td>
+                </tr>
+                {this.state.data.map((person,index) =>
+                        <tr key={index}>
                             <td>{person.id}</td>
                             <td>{person.name}</td>
                             <td>{person.skills}</td>
-                            <td><button onClick={(e)=>this.editRecord(e)}>Edit</button></td>
+                            <td><button onClick={()=>this.editRecord(index)}>Edit</button></td>
                         </tr>
                         )
                     }
-
-            
-                    
-            </table>
+            </tbody></table>
+            {this.state.editWindowOpen?<EditWindow  person={this.state.personToEdit}/>:null}
         </div>
     )
 
@@ -63,19 +68,11 @@ export default class DisplayRecords extends Component{
 
 }
 
-const editWindow =(props)=>{
+const EditWindow =(props)=>{
     return(
-    <table>
-        <tr>
-            <td colspan="2">Edit Record</td>
-        </tr>
-        <tr>
-            <td>Id</td>
-            <td>props.skills</td>
-        </tr>
-        <tr>
-            <td>Name</td>
-            <td>props.Name</td>
-        </tr>
-    </table>)
+        <div id="myModal" className="modal">
+      <div className="modal-content">
+        Hello
+   </div></div>
+    )
 }

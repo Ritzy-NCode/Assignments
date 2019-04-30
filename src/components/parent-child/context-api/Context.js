@@ -34,7 +34,7 @@ export default class Context extends Component{
         return(
             <MyProvider>
                 <div className="bg-success">
-                    <h2 claaName="bg-info">React Context API demo</h2>
+                    <h2 className="bg-info">React Context API demo</h2>
                     <Family/>
                 </div>
             </MyProvider>

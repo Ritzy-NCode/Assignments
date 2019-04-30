@@ -7,6 +7,8 @@ import ChildParentInvoke from './parent-child/ChildParentInvoke';
 import RefsDemo from './parent-child/RefsDemo';
 import Context from './parent-child/context-api/Context';
 import CompLifeCycle from './lifecycle/CompLifeCycle';
+import WeatherComponent from './lifecycle/WeatherComponent';
+
 export  default class Dashboard extends Component{
 
     constructor(props){
@@ -35,6 +37,7 @@ export  default class Dashboard extends Component{
                 <RefsDemo/>
                 <Context/>
                 <CompLifeCycle/>
+                <WeatherComponent/>
             </div>
         );
     }

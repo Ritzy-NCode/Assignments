@@ -8,6 +8,7 @@ import  Dashboard  from './components/Dashboard';
 import { Footer } from './components/Footer';
 import { ValidationComponent } from './lecturesixty/ValidationComponent';
 import { CharComponent } from './lecturesixty/CharComponent';
+import DisplayRecords from './components/record-keeper/DisplayRecords';
 
 class App extends Component {
   state = {
@@ -51,9 +52,11 @@ class App extends Component {
        <div className="App">
        <h1>The React App has started succesfully.</h1>
         <Header title="Training Session"/>
-        <Login portal="Training"/>
-        <Dashboard/>
-        
+        {//<Login portal="Training"/>
+        //
+        }
+         <Dashboard/> 
+        <DisplayRecords/>
         
         
         <h2>A small stress buster game </h2>

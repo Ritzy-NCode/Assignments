@@ -9,6 +9,7 @@ import Context from './parent-child/context-api/Context';
 import CompLifeCycle from './lifecycle/CompLifeCycle';
 import WeatherComponent from './lifecycle/WeatherComponent';
 import FormApp from './record-keeper/form-validation/FormApp';
+import {MyHOC} from './hoc/hoc';
 
 export  default class Dashboard extends Component{
 
@@ -40,6 +41,7 @@ export  default class Dashboard extends Component{
                 <CompLifeCycle/>
                 <WeatherComponent/>
                 <FormApp/>
+                <MyHOC/>
             </div>
         );
     }

@@ -42,17 +42,20 @@ const MyHOC = (ComposedComponent,params) =>
    }
   
    render() {
-      return <ComposedComponent {...this.props} {...this.state} />;
+      return <ComposedComponent {...this.props }data='I am Data from Higher-Order Component Props'  {...this.state } data='I am Data from Higher-Order Component Props'  />;
       // write the current state  to this.props for updation
    }
 };
 
 class MyComponent extends React.Component {
+   
    render() {
+      let myCompnentValue="I am coming from My";
       return (
          <div>
            <h1>Testing HOC</h1>
-            <h2>{this.props.data}</h2>
+            <h2>{this.props.data?this.props.data:"I dont have any data"}</h2>
+          
          </div>
       )
    }
